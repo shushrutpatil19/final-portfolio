@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shushrut Patil | Python Developer & Data Scientist</title>
+  <style>
+    :root {
+      --bg: #f7fbff;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --border: #dbe7f5;
+      --soft: #eaf3ff;
+      --shadow: 0 12px 35px rgba(37, 99, 235, 0.08);
+    }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 92%); margin: auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand { font-size: 21px; font-weight: 800; color: var(--primary); }
+    .nav-links { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { font-weight: 600; color: #344054; }
+    .nav-links a:hover { color: var(--primary); }
+
+    .hero {
+      padding: 90px 0 65px;
+      background: linear-gradient(180deg, #eef7ff 0%, var(--bg) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--soft);
+      color: var(--primary);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.05; margin: 0 0 18px; }
+    h2 { font-size: 32px; margin: 0 0 12px; }
+    h3 { margin-top: 0; }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 650px; }
+    }
+
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 45px;
+      padding: 0 18px;
+      border-radius: 10px;
+      border: 1px solid var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .btn-outline { background: #fff; color: var(--primary); }
+    .btn-outline:hover { background: var(--soft); }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .profile-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      background: var(--soft);
+      display: grid;
+      place-items: center;
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--primary);
+      overflow: hidden;
+    }
+    .profile-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+    section { padding: 75px 0; }
+    .section-intro { color: var(--muted); max-width: 700px; margin-bottom: 28px; }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .skills { display: flex; flex-wrap: wrap; gap: 9px; }
+    .skill {
+      padding: 8px 12px;
+      background: var(--soft);
+      border-radius: 999px;
+      color: #1e40af;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .project-card { display: flex; flex-direction: column; }
+    .project-card p { color: var(--muted); flex: 1; }
+    .project-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .contact-card {
+      text-align: center;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 22px;
+    }
+    .contact-card strong { display: block; margin-bottom: 7px; }
+    .contact-card a { color: var(--primary); word-break: break-word; }
+
+    footer {
+      padding: 28px 0;
+      background: #10203a;
+      color: #dbe7f5;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid, .grid-3, .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 12px; font-size: 14px; }
+      nav { align-items: flex-start; padding: 15px 0; flex-direction: column; }
+      .hero { padding-top: 55px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home">Shushrut Patil</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Python Developer | Data Scientist</span>
+          <h1>Hi, I’m Shushrut Patil.</h1>
+          <p>
+            I build practical solutions using Python, AI and data. I enjoy turning complex
+            problems into simple, useful applications and continuously upgrading my technical skills.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#resume" target="_blank" rel="noopener noreferrer" id="viewResumeBtn" href="#" target="_blank" rel="noopener">View Resume</a>
+            <a class="btn btn-outline" href="#contact">Contact Me</a>
+            <a class="btn btn-outline" href="https://github.com/shushrutpatil19" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-circle"><img src="profile.jpg" alt="Shushrut Patil profile photo"></div>
+          <h3>Shushrut Patil</h3>
+          <p>Python Developer | Data Scientist</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p class="section-intro">
+          I am Shushrut Patil, a Computer Science and Data Science graduate with a strong interest in
+          Python development, Artificial Intelligence, Machine Learning, and Data Analytics.<br>
+          I enjoy working with data, building predictive models, and creating applications that solve
+          real-world problems.<br>
+          I am continuously learning new technologies and improving my skills through projects and
+          hands-on development.<br>
+          My goal is to combine programming, data, and AI to build meaningful and practical solutions.
+        </p>
+
+        <div class="card">
+          <h3>Skills</h3>
+          <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Machine Learning</span>
+            <span class="skill">Artificial Intelligence</span>
+            <span class="skill">Data Analytics</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">R Programming</span>
+            <span class="skill">Excel</span>
+            <span class="skill">Data Visualization</span>
+            <span class="skill">C</span>
+            <span class="skill">C++</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <p class="section-intro">A selection of projects I have worked on while learning and building.</p>
+
+        <div class="grid-3">
+          <article class="card project-card">
+            <h3>Placement Prediction System</h3>
+            <p>A machine learning project designed to predict placement success using student academic performance, skills, internships, certifications and projects.</p>
+            <div class="project-links"><a class="btn btn-outline" href="https://github.com/shushrutpatil19/Machine-learning-model-to-predict-placement-success" target="_blank" rel="noopener">GitHub</a></div>
+          </article>
+          <article class="card project-card">
+            <h3>Expense Tracking System</h3>
+            <p>An expense management application for recording daily expenses, analyzing category-wise spending and viewing monthly financial trends through interactive dashboards.</p>
+            <div class="project-links"><a class="btn btn-outline" href="https://github.com/shushrutpatil19/Expense-tracking-system" target="_blank" rel="noopener">GitHub</a></div>
+          </article>
+          <article class="card project-card">
+            <h3>Portfolio Website</h3>
+            <p>A personal portfolio website showcasing my skills, projects, resume, learning progress and professional contact information.</p>
+            <div class="project-links"><a class="btn btn-outline" href="https://github.com/shushrutpatil19/Portfolio-Website19" target="_blank" rel="noopener">GitHub</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container">
+        <div class="card">
+          <h2>Resume</h2>
+          <p class="section-intro">
+            View my latest resume to learn more about my education, skills, projects and experience.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#resume" target="_blank" rel="noopener noreferrer">View Resume</a>
+            <a class="btn btn-outline" href="#resume" download="Shushrut_Patil_Resume4.pdf">Download Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="section-intro">Feel free to reach out for opportunities, projects or professional discussions.</p>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <strong>Email</strong>
+            <a href="mailto:shushrutpatil1@gmail.com">shushrutpatil1@gmail.com</a>
+          </div>
+          <div class="contact-card">
+            <strong>Phone</strong>
+            <a href="tel:+917411044068">+91 7411044068</a>
+          </div>
+          <div class="contact-card">
+            <strong>LinkedIn</strong>
+            <a href="https://www.linkedin.com/in/shushrut-patil-3a59562a9/" target="_blank" rel="noopener">View LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="buttons" style="margin-top:25px;">
+          <a class="btn btn-primary" href="mailto:shushrutpatil1@gmail.com?subject=Portfolio%20Contact">Email Me</a>
+          <a class="btn btn-outline" href="https://github.com/shushrutpatil19" target="_blank" rel="noopener">Open GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Shushrut Patil. All rights reserved.</div>
+  </footer>
+  </div>
+
+  <script>
+});
+
+        article.append(title, body, date, document.createElement("br"), deleteBtn);
+        notesList.appendChild(article);
+      });
+    }
+
+    function openModal() {
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      titleInput.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      titleInput.value = "";
+      textInput.value = "";
+    }
+
+    document.getElementById("addPostBtn").addEventListener("click", openModal);
+    document.getElementById("cancelPost").addEventListener("click", closeModal);
+
+    document.getElementById("savePost").addEventListener("click", () => {
+      const title = titleInput.value.trim();
+      const text = textInput.value.trim();
+
+      if (!title || !text) {
+        alert("Please enter both a title and a note.");
+        return;
+      }
+
+      const posts = loadPosts();
+      posts.unshift({
+        title,
+        text,
+        date: new Date().toLocaleDateString("en-IN", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric"
+        })
+      });
+
+      savePosts(posts);
+      renderPosts();
+      closeModal();
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeModal();
+    });
+
+    renderPosts();
+  </script>
+
+<script>
+(function () {
+  const resumeData = "data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyA5IDAgUiAvTWVkaWFCb3ggWyAwIDAgNjEyIDc5MiBdIC9QYXJlbnQgOCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNiAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDggMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9BdXRob3IgKFwoYW5vbnltb3VzXCkpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjEwMDQxMjM4MDgrMDAnMDAnKSAvQ3JlYXRvciAoXCh1bnNwZWNpZmllZFwpKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjEwMDQxMjM4MDgrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIHd3dy5yZXBvcnRsYWIuY29tKSAKICAvU3ViamVjdCAoXCh1bnNwZWNpZmllZFwpKSAvVGl0bGUgKFwoYW5vbnltb3VzXCkpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKOCAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDUgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDM0MTEKPj4Kc3RyZWFtCkdhdTBGPkJlZGwmcTgwMWthMUBUMkxwcSJuJ2JhKS1bO2ppNWBUTCduT2spYVRORylKaDMncUZhY0c+X1xnOSVzWV1eWiIoRScyKjxGOGdVRlxzLFpgS3QoYHFfO1NuKl1xJlNSLF1yP2BnaEBPY0ZiPWRIZ2dyW2tOIWxSL28wIVAobFdmQUYmMSc8QEBGTi9XUSlSZlgxNkFmZGpoTGZDSDFdTlYsO0MqZkYtP1JqTzxNV2UraEwoVVRRTm1ybDJVU2JraTIsRFtqUmRUQ0s9cVpVNmhDaEs6a1tTaDJcUDhxUjdkUzddYFMzZCs2R0NNNzhFZCppbDUzJlVRQUc/JlxpLjsubFk9K14rL0gnZWwyZkplISE7cEhfPS4kP0Y6LjtrKyonLTxZUWZFWDw8ViRpXXFGN0NZJlxKL2VSZW9NRTVXb15TdFdFIWVhP2BjZW1kVyskJD5WNCFyamZpcDJRQ0VBZipiUVtiby1kTz9NJSxVampHWHR1Ojs1QmhAc1g6JUwhJWdpOlcoOUxjVEw+dTw6T1A0MnQxPXRAQkktJDw5czNsWmI/KW0kQmtdLEtGLG1kJT9vN01oNkwxbj5pVWY9VVpxP3ApT04qJiVLWmBCZkVcOyw1JixSLTZIMCktKChbPDQhMWYoZzJdKUc3QThsVkcqTzxmU2VRJGhraGEzXHRnR2RtO01WR0BePEVdaypLU1BvX2YmMlI8SiFaUD0zIkVFV0NXJVApKDMsbmksMlk4ZUQmKT9cNkFQNXJnK3RxZywqWEUyImt0dDNTY21WMFFWLFBWZXRHY15gOSlwXik1XFsjcChYQTNgbj1Maz9YW0JbSDg4Zj0uNCxzY3A7TFdwaV5VMTA5dGlqJmJiPmhuWClAUC5bbyo3XU0tNG5OUkNXZ2UoT3M/bG05ST9jOE89KTUrX1c+Xk0sQGBnLztoUzJqbyw+aVhMSCxlVyJLSk9EW3JJQjNuLEdrRis4Yy49WDpMTGJYPChfUlZDUiwpQixDcU1TX0NAPGEiMFZbOExqY2w+UzA/I21VcV82Sz4yLHFhdDxxXGUmSiMyRTtsUWZZLVVaK0xDUG5LK0Q8QVVYMDZIY3QiX0UsXzpPIjNLUiQuLF5JMEhVI1JbRyNjWWQ6cGFKaU5vTj1mbm1GIlphLSdoSCokby8wJExEUFBDTklYZTQzX0NILSQsKzIoKz1ZPi9NOSEzJkpZbzhkMyZfc1Q0cUI1LUtdR0kzPiVrTkYrSTgtcGQ/JVlEPT1hT2QpNFZ0PzckLjNpNiVyJDItJ1MwJCI8bSU0UUFibEkhXiZFZU9vYl9oaG5XOWFBVmxmYEhoKF9ebllyblxPO1czKFVrOzJaNlMoazhXQExLMFdwNmJjaU8nMF5vbTw9NiM8aFk3NTZmJGFqT2NZVSVXVkVtcS8yczUwQGtAcCtlaExbQF8nMEhfIVtZQU8yTWJNLSUlSi5sJWsnVlI6Z24ib1k2QThjaSFfZU8hYzVzYVdHZWJvZmRpM0lua0ErMCZcQUEmZkYscE5KPUBAKC5iZ0k6U3MrYG9ycDJIbTNmOERlJ0o/Xj1kTS5BOHBAZnNTc0okMkw3cmBHR1RxYFFESjozRkgvVyI4W1tjWTdSa2xfbC8vaSlKRC9BIk1YRUtWM1s1dHU3aVc4Ky5IZ0RrcG5uZForNzA8UE1EJWJoYE91ZVJfMllmTDA6XCIkKlJwblBGNTZ0OHA8ZGI9WlpoVUphZVhDQ1ZsQ0Y7L2ZlXVFZUDJIPjNrP2hYVlpHXEA+WHJoV0EzWCZyVmZKUGUqbmVLQnFzKkxgXE9sbCxTZGRbIiFQW2xYM1xKL2I4LS9RZyxEcydNXGx0MVZLY0Y1biZAWiJnPHFSVmcoJkZnK3RKNmRfKGpTPjM0RmZwRCZjKV1BTmRsW28uajFZUEEtQUhbNzMnb2s/JV81WidcTyJAKlQ7REpXaz1oZmhAJDQ9SStYK2NOI1MmPVhOSywnUEptOipgZj5qWmBQPlYqJztnVEhLSWk3K3VyLEZmbU9bYXBEInJlY2NZYCVEMCFpaEJmYVpqX1s+TlVtJEc2USVJUFVITU82YTVFYl5CJnBmR3E5Z0taL2MjUSpXZjQ5aUJydXU5dW0/ISwxMDpvNy5MWTErbEkocEVgMl1APUErQ21pJWBfKl5mbjQoaEwkPEdfZ0NrSylFJ1x0QEFQWUlMLXFxbmhTbm5MLmNHSGQscmdKREddOzNQMkcsUzwrc2xHKyI8dCYnYiRFKEwmSU8oOWBDX29dVVBRPnNeUmspMCI2Ti9tKlRIbSRWTFRUUy9bO28hR3VVWVFKME51VStIVzwkaVdbaDxEbGQrKlszO3NYa0dVVGRvV05XP1VSM2xRJ0xbRidSYXU5QW9jZi9hWzkhPmgtR1MnaFVHL0w5PSdKbj1SY0gqOT8hSDQrQkZSbzBLWUwmJ2pgXDFnRCt1bTMuXmFaVVNMYSssJTkzM3FcVCFQOkJ1OWsmcmRTTzY4N0FwYEk9T0Fqb3I4KVBSPFMrIiNfZERtZ2NNVlJMbC00VzMxMkVjbTdATFszTCZWQGckb2E4TmxlUENqSWx1OyIxOWovT1EkajAsWW5TcmhwLyNhaCI0JGxrblVGYGZkOGliO3FlbGAsIl5vb1stUEVLTG8zKSMnJyphdF9pSC4mWzgtRD5ZWC0yNztpalJZakwlITI1JUtuTG5Fb2pZIyJtP1ApY0ksWEBbVj9qRSdTT1hiUVMpOzsrc2ZcXVooZUw8NUoyWCR0dCdxaiMhN29Zb0Zuc09wJGhbXztnQDoqQCc0Nl5jSUtbWmhcNEM7OyRjXGFNT2dcQmNPIVxANi5DOjBKXkwkVFVhNGdJXjQ2JSFKKzguZz0qQ1YxNTFUYltLS1MjODNcPlJbZUZvSlBcMnQwLHBnaSVVOWs6RERUXzEqMkUnZi4/NVluXjxEZUxpLCN0PWRdSXAyNj5BTTwvVFdySWhtcy5GaE9dcV1ycTZPLCZyWl5xIkFOSCkyYmMvKG08J29wZEtSVE1LTyR1XDFqKTosSV8kOkddakMpcm4tVUJiWGphUFRIKGtrVjYvNF1VTF8sQCZlLiVcdV9ZSThAYSpdLHFOPG4jUlxgbjhVNlEpQlNxVCMhMjZMV3UnQi5LOnRxXE1qLWtBXTxRViFPL1hUMHVHcnMvaVYuR0VaPz5bTDJnWmBqWTlfbiUpRkNeJU5pSipsYy48S2hsKl4ncWhiKWs5QFtlTWomWT85MFJeXHE4TC1gJk9UU0pDLTZDOVdnN0EhNUtKOk9IaiIwTilsWWYtKj5tYEZoQlJGZScqaC9AI0RgUzhpV3VKN2cmLkZxZTEuSlQoVCg5c1cnZEAiPmxuQU9Ccl41KVY/bDpBR0hfaTxWTEFJVEc7QioiNkZUKyptZFdbXHFpLUksQyoiXE1pVC9TbklpIkFpKyZTYT4wNyonY2c1ZmRERiRsb0J0Ujt0LyRgMiUvOEpgJ0xcPmZvcEZhXGhlSWRpU1o2SUtlUVQ8L0YxNGspMTMuKl9RaSJCbUNZcGwmJUtccFFaTz9QXSQoaDgocWYia3QmUkhKR1NAS2wpYyl1LippMCo4aHE0NDRJaGYkK2RMMSo5ZkRTaTF1bTBEYT5dXEg5QVUnbEFcVUxsSCcxVytjVCtaJm0nOiFYZ0s6cWZeLzdySCkrTktSQG82b2swMVBlQ1YwNHVERzVqaj8uSl5pYFZgOUVKUWsmLWI4IUBSUmEoKSU1PDhSbSo+UTU9Z29IdF1BMTQ8JFteak4lYzsudG0rUGc+JiNDUkA0YE9jLzghOlldLDFfKFk4aVNAYG9NaGVzKj5qOERLM0ktYTJbUyNnZF40U05rV1haLDNyUnEzTVhMKDVaaE9TJW5DYmBwMW9DOG1PVDBicisnSi9ZdW42c2E2K2U2ayUuLm03K2IwOWEpSDwrZ2ghQytsPWNWYyxaQiRWb0lUN0M0Yik4WzlDa0s2N11kOWheUTo7TDE7PUBlbVpSRU5vJDZlS2oqMWhvUGQpUDM/MVlrOzlGLVooLjZ1JFpXcSIhRiRfIztENVNaanJBV046W3BkaixJcCYnXEY0OTA/Ij0rPGFVbHBncEJVRVo5PT5rO3BaYEMxJzBVdDxYa3RuaFQzT3JlRW9OUEEwOW1Na1dYXi9sVlZQcD4ydVE/QTVjQDE1O0NRL2NnQSVLMl1IMjohXSg5RDxIRVRSLCJyRG51ZixOTE0rJjE0VD41Ukw/cSlOPjBddVY/Jy5GRHQ/Z0BkLEtybkgwRFs1S0hnQjohWV0tQzFVcF5yaDBsUCNSTTBdcSE/UjhZWE0kMj4wS1ROUj8iNDE6bW44Vlc5O2EpYTwsWz1oSFhEVUlMY0tcMGBnYGNGZkZSKl5tXEZzNUI7MnJVWDY/WSIrUFxsTVU7L1RfPidbcyxSY0opMWk7bThoaT9cSC0mWjNCPztgNG9sPjVKZTk0V2VIZSRtKVckZT8yYmBRWURzKik3T0dqbD1YcF0pLDlHUS5kPCFdQ2J+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDEwCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA3MyAwMDAwMCBuIAowMDAwMDAwMTI0IDAwMDAwIG4gCjAwMDAwMDAyMzEgMDAwMDAgbiAKMDAwMDAwMDM0MyAwMDAwMCBuIAowMDAwMDAwNDU4IDAwMDAwIG4gCjAwMDAwMDA2NTEgMDAwMDAgbiAKMDAwMDAwMDcxOSAwMDAwMCBuIAowMDAwMDAxMDAyIDAwMDAwIG4gCjAwMDAwMDEwNjEgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8ZTY0NTcwZThlODE0OGZjNDMzNWI1OGFlZmNlZDg0MTE+PGU2NDU3MGU4ZTgxNDhmYzQzMzViNThhZWZjZWQ4NDExPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKGh0dHA6Ly93d3cucmVwb3J0bGFiLmNvbSkKCi9JbmZvIDcgMCBSCi9Sb290IDYgMCBSCi9TaXplIDEwCj4+CnN0YXJ0eHJlZgo0NTYzCiUlRU9GCg==";
+  let resumeUrl = null;
+
+  function getResumeUrl() {
+    if (resumeUrl) return resumeUrl;
+    const base64 = resumeData.split(",")[1];
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    const blob = new Blob([bytes], { type: "application/pdf" });
+    resumeUrl = URL.createObjectURL(blob);
+    return resumeUrl;
+  }
+
+  const viewButtons = document.querySelectorAll("#viewResumeBtn, #viewResumeBtn2");
+  viewButtons.forEach(function (btn) {
+    if (!btn) return;
+    btn.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.open(getResumeUrl(), "_blank", "noopener");
+    });
+  });
+
+  const downloadBtn = document.getElementById("downloadResumeBtn");
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      const link = document.createElement("a");
+      link.href = getResumeUrl();
+      link.download = "Shushrut_Patil_Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
